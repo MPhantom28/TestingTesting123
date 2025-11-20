@@ -28,12 +28,10 @@ class MainActivity : AppCompatActivity() {
         addButton.setOnClickListener {
             items.addItem(Item(itemEditText.text.toString()))
             recyclerView.adapter?.run {
-                notifyItemChanged(itemCount-1)
+                notifyItemChanged(itemCount - 1)
             }
-            itemEditText.setText("")
         }
-
-
+        itemEditText.setText("")
     }
 }
 

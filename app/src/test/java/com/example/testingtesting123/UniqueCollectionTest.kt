@@ -16,6 +16,11 @@ class UniqueCollectionTest {
     // TODO 1: Write a test to ensure items can be added to the collection
     @Test
     fun addAnItem() {
+        val initialSize = collection.size()
+        collection.addItem(Item("Test Item"))
+        val finalSize = collection.size()
+
+        assert(initalSize + 1, finalSize) {"Item Added"}
 
     }
 
@@ -23,6 +28,19 @@ class UniqueCollectionTest {
     // Uniqueness is determined by the Item.name property, which is set via the constructor
     @Test
     fun addUniqueItem() {
+        collection.addItem(Item("Apple"))
+        val sizeAfterFirstAdd = collection.size()
+
+        collection.addItem(Item("Apple"))
+        val sizeAfterDuplicate = collection.size()
+
+        collection.addItem(Item("Orange"))
+        val sizeAfterDifferentItem = collection.size()
+
+        assert(sizeAfterFirstAdd == 1) { "First item should be added" }
+        assert(sizeAfterDuplicate == 1) { "Duplicate item should not be added" }
+        assert(sizeAfterDifferentItem == 2) { "Different item should be added" }
+
 
     }
 
