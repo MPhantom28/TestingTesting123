@@ -20,7 +20,7 @@ class UniqueCollectionTest {
         collection.addItem(Item("Test Item"))
         val finalSize = collection.size()
 
-        assert(initalSize + 1, finalSize) {"Item Added"}
+        assert(finalSize == initialSize + 1) {"Item should be added to collection"}
 
     }
 
